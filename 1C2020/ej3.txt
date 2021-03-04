@@ -1,0 +1,66 @@
+3) Dado un stream compuesto por los siguientes números: 3, 1, 4, 1,
+5, 9, 2, 6, 5. Queremos aplicar el algoritmo de Flajolet Martin para
+calcular el momento de orden 0 del stream usando una función de
+hashing de la familia: h(x) = (a*x + b) mod 32. El resultado debe
+tomarse como un número de 5 bits contando la cantidad de ceros a
+derecha del mismo. No todos los valores de a y b son adecuados, le
+pedimos que nos explique qué valores de a y b son los más
+adecuados y por qué motivo. A modo de ejemplo analice las funciones
+resultantes de usar: (a=2,b=1) (a=3,b=7) y (a=4, b=0). (20 pts)
+
+Respuesta:
+
+Primero analicemos que pasa con los casos especificos que nos estan dando.
+
+a = 2, b = 1
+
+h(x) = (2*x + 1) % 32
+
+h(3) = 7 = 00111
+h(1) = 3 = 00011
+h(4) = 9 = 01001
+h(5) = 11 = 01011
+h(9) = 19 = 10011
+h(2) = 5 = 00101
+h(6) = 13 = 01101
+
+Estima 2^0 = 1
+
+a = 3, b = 7
+
+h(x) = (3*x + 7) % 32
+
+h(3) = 16 = 10000
+h(1) = 10 = 01010
+h(4) = 19 = 10011
+h(5) = 22 = 10110
+h(9) = 2 = 00010
+h(2) = 13 = 01101
+h(6) = 25 = 11001
+
+Estima 2^4 = 16
+
+a = 4, b = 0
+
+h(x) = (4*x) % 32
+
+h(3) = 12 = 01100
+h(1) = 4 = 00100
+h(4) = 16 = 10000
+h(5) = 20 = 10100
+h(9) = 4 = 00100
+h(2) = 8 = 01000
+h(6) = 24 = 11000
+
+Estima 2^4 = 16
+
+Respondiendo a la pregunta del enunciado, nosotros entendemos que se refiere
+a que leamos los bits de derecha a izquierda (al contrario de como lo hace por
+default Flajolet Martin) dando la cantidad de ceros de derecha a izquierda.
+Si esto es asi entonces es evidente que a no puede ser par al mismo tiempo
+que b es impar porque entonces nos van a quedar siempre numeros impares para cualquier
+valor de X, lo cual resultaria en r = 0 para todas las entradas. Obviamente a no puede ser 0
+tampoco porque sino todo hashearia a lo mismo. Luego si a es par y b es par eso siempre
+va a dar un resultado par lo cual no nos da uniformidad en el output posible de la funcion
+de hashing y eso es malo. En consecuencia, se deduce que los unicos valores adecuados
+serian a siendo un numero impar y luego b puede valer lo que quiera (positivos? supongo).

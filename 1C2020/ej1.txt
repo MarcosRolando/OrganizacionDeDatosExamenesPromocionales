@@ -1,0 +1,16 @@
+1) Estamos construyendo un árbol de decisión para clasificar si un
+conjunto de platos es adecuado para carnívoros (clase C) o veganos
+(clase V). Para un cierto split el algoritmo CART debe analizar si hacer
+o no un split por la columna “ingrediente 2 en gramos” que es una
+columna numérica. Dados los valores de la columna y la clase a
+predecir le pedimos que indique cuál sería el valor de la ganancia de
+información para la columna en cuestión.
+
+23, V
+80, C
+85, C
+65, V
+100, V
+11, C
+
+(15 pts)

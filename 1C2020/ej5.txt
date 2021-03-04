@@ -1,0 +1,22 @@
+5) Tenemos la siguiente información parcial sobre un grafo dirigido al
+cual hemos aplicado PageRank hasta la convergencia:
+- El PageRank de A es 0.15
+- A tiene 2 links uno hacia C y otro hacia B
+- C recibe solo dos links, uno viene de B
+- El PageRank de D es 0.1
+- B recibe un solo link
+- D solo recibe un link que viene de C
+- Desde C solo sale un link.
+¿Cuántos links salen desde B? Explique detalladamente todas las
+deducciones realizadas hasta llegar a la respuesta. (15 pts)
+
+Respuesta:
+
+Sabiendo que el PR de A es 0.15 esto significa que le da a C un PR de 0.075 (ya
+que conecta con B y C), luego C entrega 0.1 a D y como recibe 0.075 de A entonces
+debe estar recibiendo 0.025 de B. Luego sabemos que B recibe 0.075 de A, por lo
+tanto si tiene que estar entregando 0.025 a C eso implica que debe estar entregando
+a otro nodo mas (ya que su output tiene que ser igual a su input) entonces
+B tiene que conectar a 3 nodos en total ya que al entrarle 0.075 y salirle 0.025
+vemos que 0.075/x = 0.025 da que x = 3, siendo x la cantidad de links salientes
+de B.

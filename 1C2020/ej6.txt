@@ -1,0 +1,28 @@
+6) Tenemos la siguiente matriz representando usuarios (A,B,C,D) y
+productos comprados (1 a 8).
+
+    P1 P2 P3 P4 P5 P6 P7 P8
+A      1        1  1
+B         1        1  1  1
+C   1           1  1
+D      1     1        1
+
+Usando la semejanza de Jaccard y collaborative filtering user-user con k
+(cantidad de vecinos) = 2. indique cuáles serían los 3 productos que le
+recomendaría al usuario “A” y en qué orden. En caso de que haya
+empates use collaborative-filtering item-item para desempatar. (20 pts)
+
+Respuesta:
+
+Los mas semejantes a A son C y B ya que J(C) = 2/4 = 1/2 (este es el mas semejate)
+y luego J(D) = 1/5. Sabiendo esto tenemos que calcular el promedio ponderado
+de los productos que compraron los 2 usuarios mas similares tendriamos que
+
+Como a C le damos mas bola que a D porque es mas semejante entonces el orden inicial
+seria P1, P4 y P7, el tema es que P4 y P7 empatan entonces tenemos que desempatar
+usando item-item. Aca podemos elegir usar los valores mas semejantes de P4 y P7 con
+los productos que compro A, donde en dicho caso como P4 tiene semejanza 0.5 con P2
+y P7 tiene semejanza 0.33 con P2 (y con P6 tambien pero bue) entonces P4 seria el ganador.
+Si tomasemos el promedio tendriamos que para P4 daria (0.5+0+0)/3 = 1/6 y para P7
+daria (0.33+0.33+0)/3 = 2/9 que es mayor a 1/6 por lo tanto ganaria P7 en ese caso
+y ambas opciones son validas.
