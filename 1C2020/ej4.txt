@@ -1,0 +1,39 @@
+4) En este ejercicio le pedimos que demuestre que el algoritmo de
+K-Means que vimos en el curso para la distancia euclídea siempre
+termina. Como esto puede parecer un poco confuso lo ayudamos con los
+siguientes pasos:
+a. Demuestre que el punto que minimiza la función costo para un
+cierto cluster es el promedio de todos los puntos en el cluster. (5
+pts)
+b. Demuestre que en cada paso de K-Means la función costo solo
+puede disminuir. (5 pts)
+c. Solo falta un detalle más para terminar de demostrar que K-means
+termina y le pedimos que nos diga cuál es. (5 pts)
+
+Respuesta:
+
+a) Sabemos que la funcion costo de K-Means es
+
+f(Cidx) = sum(||Xi - Cidx(i)||^2), i, 1, m)
+
+donde Cidx(i) es el centroide correspondiente al cluster al que pertenece el
+punto Xi. Entonces lo que queremos ver es que pasa con la derivada de esta funcion
+cuando se iguala a 0, ya que en ese caso estariamos en principio ante un minimo o un maximo
+
+f(Cidx) = sum( (Xi0 - Cidx(i)0)^2 + (Xi1 - Cidx(i)1)^2 + ... + (Xin - Cidx(i)n)^2 , i, 0, m)
+
+df/dCidx = sum(-2*(Xi - Cidx(i)), i, 1, m) = 0
+
+=> Cidx(i) = sum( Xi/m, i, 1, m) = 1/m * sum(Xi, i, 1, m)
+
+donde queda demostrado que los puntos que minimizan la funcion de costo son
+el promedio de los puntos pertenecientes a cada cluster, denominados centroides.
+Sabemos que es un minimo y no un maximo porque la derivada  segunda de f
+nos da 2 para todas las componenetes, y como 2 > 0 se trata de un minimo.
+
+b) Sabiendo que en cada iteracion solo reasignamos los puntos si el punto esta
+mas cerca de uno de los nuevos centroides que del anterior que tenia asignado
+entonces se deduce que solo puede disminuir dicha funcion.
+
+c) Como la cantidad posible de clusterizaciones es finita sabemos que eventualmente
+convergeremos.
