@@ -1,0 +1,43 @@
+3) Dados los siguientes puntos en 1 dimensión
+(1,4,9,16,25,36,49,64,81,100). Queremos aplicar K-Means
+usando la distancia euclídea para encontrar 2 (dos) clusters.
+Para inicializar el algoritmo elegimos al azar 2 puntos de la lista.
+a) Indicar cuál es de todas la inicialización que
+minimiza la función objetivo de K-Means. (7 pts) (*****)
+b) Para todos los resultados posibles indicar cuántos
+puntos cambian de cluster en la segunda iteración de
+K-Means. (8 pts) (*****)
+
+Respuesta:
+
+a)
+
+Para esto debemos inicializar los clusters en dos puntos randoms de la lista y ver
+a que convergen los centroides, luego es cuestion simplemente de iniciar en los puntos
+de la lista mas cercanos a esos centroides ya que convergeran mas rapido.
+
+Ponele que arrancamos con c1 = 16 y c2 = 64. La formula de costo de k means
+es
+
+f(Cidx) = sum(||Xi - Cidx(i)||^2), i, 1, m)
+
+y el Cidx(i) que minimiza esa funcion es el promedio de los puntos que pertenecen
+al cluster.
+
+Asignamos los puntos a cada cluster
+
+C1 = {1,4,9,16,25,36}
+C2 = {49,64,81,100}
+
+calculamos los nuevos centroides c1 = 15.16, c2 = 58.8 y volvemos a asignar los puntos
+a cada cluster de los centroides y vemos que nos queda lo mismo por lo cual le re pegue xd.
+Entonces los 2 puntos mejores para inicializar son 16 y 64 (porque son los mas cercanos
+a los valores de c1 y c2 a los que converge que son 15.16 y 58.8).
+
+b) No tengo ni puta idea, lo que pienso que es tiene como 40 combinaciones asi que chances.
+
+
+
+
+
+

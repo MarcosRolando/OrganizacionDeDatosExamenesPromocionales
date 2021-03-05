@@ -1,0 +1,26 @@
+5) Tenemos un grafo dirigido con 5 nodos y las siguientes 7
+aristas: (A,B) (A,D) (D,B) (B,C) (C,B) (C,E) (E,A). Considerar
+beta = 0.5. Calcular cuál sería el vector de teletransportación
+necesario para que el Pagerank de todos los nodos de igual.
+(****) (10 pts)
+
+[ A
+  B
+  C   = beta * M * transpuesta([A B C D E]) + (1 - beta) * v, donde v es el vector de teletransportación
+  D
+  E
+    ]
+
+M = [ 0     0   0     0   1
+      1/2   0   1/2   1   0
+      0     1   0     0   0
+      1/2   0   0     0   0
+      0     0   1/2   0   0
+                             ] #los valores van en columnas partiendo del nodo de la columna y yendo hacia el nodo de la fila
+
+Luego como el PR es el mismo para todos los nodos porque lo pide el enunciado
+tendriamos transpuesta([0.2 0.2 0.2 0.2 0.2]) = transpuesta([A B C D E])
+
+Despejando v y calculando obtenemos que
+
+v = transpuesta([0.2 0 0.2 0.3 0.3])

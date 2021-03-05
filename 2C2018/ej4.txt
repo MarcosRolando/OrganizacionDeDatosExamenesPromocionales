@@ -1,0 +1,14 @@
+4) Dados los siguientes puntos en una dimensión:
+(1,17,18,26,303,411,511) y sus labels para un problema de
+regresión: (6,11,14,23,108,109,211). Usaremos gradient
+boosting para aproximar los valores de forma tal de minimizar el
+error cuadrático medio (MSE).
+a) Construir un árbol de decisión de 1 nivel, dibujarlo.
+(***) (5 pts)
+b) Una vez construido el árbol anterior construir un
+segundo árbol basado en la técnica de gradient
+boosting indicar la predicción final que realizaríamos
+para cada punto y el error de train en base a estas
+predicciones. Indique si estamos ante un caso de
+overfitting o underfitting. (****)( (10 pts)
+
