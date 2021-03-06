@@ -1,0 +1,46 @@
+6) Considerar una red social en la cual cada usuario puede
+tener exactamente 0, 1 o 2 amigos pero nunca más de
+2.(considerar que una vez en régimen prácticamente todos los
+usuarios tiene 2 amigos). Queremos comparar la estructura de
+esta red social con respecto a una red social sin estas
+limitaciones. Analice los siguientes puntos (10 pts) (**)
+- Distribución del grado
+- Betweenness promedio
+- Diámetro
+- Cantidad de triángulos
+- Coeficiente de clustering
+
+Respuesta:
+
+Bueno, la verdad que soy una poronga en Redes Sociales asi que si alguien depende
+de esta respuesta no me hago responsable equisde. Lo que pienso que es es que
+primero consideramos el estado en regimen, donde entonces podemos considerar
+que todos los usuarios tienen 2 amigos y el grafo es conexo (porque segun el apunte
+practicamente todos se conocen salvo algunos outliers pero redondeamos a uno conexo
+porque sino es mas rebuscado y aparecen casos borde). Habiendo considerado esto
+se deduce que el grafo de la red social es un ciclo Cn con n la cantidad de usuarios.
+
+Sabiendo la forma del grafo podemos calcular lo que nos piden. La distribucion
+de grado sera 0 para los grados 0 y 1 y 1 para el grado 2. El Betweenness promedio
+es directamente el Betweenness de un nodo cualquiera ya que el grafo ciclo es simetrico,
+y dicho Betweenness es (n-1) / 2 redondeado para abajo, donde n es la cantidad
+de usuarios. El diametro es n / 2 redondeado para abajo. La cantidad de traingulos
+es 0 (salvo que sean 3 usuarios pero chances) y el coeficiente de clustering es 0
+ya que los vecinos nunca se conectan entre si (salvo si tenes 3 usuarios porque
+ahi es un triangulo en cuyo caso seria 1 el coeficiente de clustering).
+
+Ahora si comparamos con esto con una red social que no tiene limitacion de usuarios
+tednriamos que la distribucion de grado seguiria al power law, es decir que
+la cantidad de usuarios en funcion del grado seria de la forma de 1/k, siendo
+k el grado. No tengo ni idea de como calculas el Betweenness promedio en este caso.
+El diametro es bajo comparado con el caso donde tenes limite de amistades, igual
+esto lo dice el apunte asi que tomenlo como ley, segun el apunte es del orden
+de O(log10(n)). No se como estimas la cantidad de triangulos asi que de baja, hay algo
+con los autovalores pero es una matriz infinita asi que mas de baja todavia.
+
+El coeficiente de clustering seria alto (es decir mas cerca de 1) ya que los amigos
+de alguien eventualmente se hacen amigos entre si, por lo tanto estaran conectados
+en el grafo.
+
+
+

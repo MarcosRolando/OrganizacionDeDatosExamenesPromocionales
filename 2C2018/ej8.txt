@@ -1,0 +1,9 @@
+8) Explicar la diferencia entre un data-hub y un data-lake, y
+proponer un caso que ejemplifique el uso de cada uno. (*) (10
+pts)
+
+Respuesta:
+
+No se, no entendi una mierda y no esta en el apunte. Ver el siguiente link
+
+https://blog.semarchy.com/how-to-differentiate-a-data-hub-a-data-lake-and-a-data-warehouse#:~:text=They%20all%20look%20similar%20but,on%20analytical%20uses%20of%20data.

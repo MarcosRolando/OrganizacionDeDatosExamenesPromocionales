@@ -1,0 +1,33 @@
+7) Dados los siguientes puntos en una dimensión y sus labels
+para un problema de clasificación binaria: (RED,0) (RED,0)
+(GREEN,1) (GREEN,0) (BLUE,0) (GREEN,0) (BLUE,0) (RED,1)
+(GREEN,1). Aplicar 2 algoritmos diferentes de Mean-Encoding
+indicando cómo quedaría cada registro. (*) (10 pts)
+
+Respuesta:
+
+R   0
+R   0
+G   1
+G   0
+B   0
+G   0
+B   0
+R   1
+G   1
+
+Calculamos la proporcion de clasificacion en 1 de cada color (podriamos hacer la de
+0 en lugar de la 1 si quisieramos igual). Tendriamos entonces la siguiente codificacion
+
+R -> 1/3
+G -> 1/2
+B -> 0
+
+No encontre en internet ningun otro tipo de mean encoding pero supongo que seria
+valido tambien dividir la proporcion por la cantidad de datos que tiene esa clasificacion
+de forma tal de disminuir la probabilidad de que haya colisiones en la codificacion ya que
+eso seria una cagada. Haciendo eso obtendriamos
+
+R -> 1/9
+G -> 1/8
+B -> 0
