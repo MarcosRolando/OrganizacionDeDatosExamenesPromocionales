@@ -1,0 +1,18 @@
+5) a. Construir un filtro de bloom de 16 bits (m=16) que contenga los
+caracteres C y D, para el universo de 5 (n=5) caracteres A, B, C, D, E
+considerando las siguientes funciones h1 y h2. Tener en cuenta que la
+probabilidad de falso positivo para la construcción es de 0.2.
+
+    A   B   C   D   E
+
+H1  13  8   4   4   3
+
+H2  15  5   9   15  7
+Una vez creado, explicar cómo se realiza la resolución con el filtro de las
+consultas A, B y D, indicando que se infiere usando el mismo y por qué.
+(5pts)
+
+b. Sabiendo que el m que se utilizó es óptimo, indicar si la cantidad de
+funciones de hashing utilizadas es óptima, justificando su resolución. (5 pts)
+(**)
+

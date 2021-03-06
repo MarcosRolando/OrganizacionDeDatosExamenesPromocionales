@@ -29,10 +29,10 @@ Asignamos los puntos a cada cluster
 C1 = {1,4,9,16,25,36}
 C2 = {49,64,81,100}
 
-calculamos los nuevos centroides c1 = 15.16, c2 = 58.8 y volvemos a asignar los puntos
-a cada cluster de los centroides y vemos que nos queda lo mismo por lo cual le re pegue xd.
-Entonces los 2 puntos mejores para inicializar son 16 y 64 (porque son los mas cercanos
-a los valores de c1 y c2 a los que converge que son 15.16 y 58.8).
+calculamos los nuevos centroides c1 = 15.16, c2 = 73.5 y volvemos a asignar los puntos
+a cada cluster de los centroides.
+Entonces los 2 puntos mejores para inicializar son 16 y 81 (porque son los mas cercanos
+a los valores de c1 y c2 a los que converge que son 15.16 y 73.5).
 
 b) No tengo ni puta idea, lo que pienso que es tiene como 40 combinaciones asi que chances.
 

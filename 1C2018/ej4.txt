@@ -1,0 +1,43 @@
+4) Spotify registra con 1 o 0 si al usuario le ha gustado o no una
+canción. Tenemos la siguiente matriz en donde conocemos los gustos
+de los usuarios A, B, C, D y E para 6 canciones. Se pide estimar si al
+usuario "A" le van a gustar o no las canciones 5 y 6 usando
+collaborative-filtering de tipo user-user tomando los 2 vecinos mas
+cercanos para realizar la estimación
+
+
+    c1  c2  c3  c4  c5  c6
+A   1   0   0   1   ?   ?
+B   0   1   1   0   1   0
+C   1   1   0   0   0   1
+D   1   0   1   1   1   0
+E   1   0   0   1   0   1
+(***) (15 pts)
+
+Respuesta:
+
+Primero calculamos los mas cercanos utilizando la distancia de Jaccard. Por que Jarccard?
+Porque es binario y es la mas pelotuda, asi que esa. Si quieren otra que avisen. Otra opcion
+seria usar Pearson pero es mas complicada y como esto es binario con Jaccard deberia
+alcanzar. O sea, deberia dar lo mismo cualquiera de los 2 (no la semejanza en numero,
+pero si cuales son los mas semejantes).
+Entonces para estimar los mas cercanos usamos solo las primeras 4 canciones
+porque la 5 y la 6 son las que no sabemos si a A le van a gustar o no.
+Entonces tendriamos que
+
+J(B) = 0/4 = 0
+J(C) = 2/4 = 1/2
+J(D) = 3/4
+J(E) = 4/4 = 1
+
+Tenemos entonces que los mas cercanos son D y E. La formula que podemos usar
+para predecir de forma generica (es decir, incluso si el sistema fuera de puntaje
+y no binario) es sum(J(Xi)*P(Xi), i) donde J(Xi) es la semejanza de Jaccard
+del usuario Xi con el usuario A y P(Xi) es el puntaje que le da a la cancion
+el usuario Xi (que en este caso es solo 0 o 1). Entonces para c5 tendremos
+0.43 y para c6 tendremos 0.67 (justo para este caso es medio obvio que le vas
+a recomendar la del mas semejante si difieren porque son solo 2 usuarios y no
+hay puntaje).
+
+Se me hace que este ejercicio parece muy boludo, asi que duden de todo lo que puse.
+Capaz esperan algun tipo de metrica mucho mas cheta pero bueno, soy marginal.
