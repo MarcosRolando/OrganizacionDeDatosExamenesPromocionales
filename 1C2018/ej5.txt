@@ -8,6 +8,7 @@ probabilidad de falso positivo para la construcción es de 0.2.
 H1  13  8   4   4   3
 
 H2  15  5   9   15  7
+
 Una vez creado, explicar cómo se realiza la resolución con el filtro de las
 consultas A, B y D, indicando que se infiere usando el mismo y por qué.
 (5pts)
@@ -16,3 +17,35 @@ b. Sabiendo que el m que se utilizó es óptimo, indicar si la cantidad de
 funciones de hashing utilizadas es óptima, justificando su resolución. (5 pts)
 (**)
 
+Respuesta:
+
+a)
+
+Debemos ver que bits nos activan las funciones de hash para C y D. Vemos
+que para C y D nos dan los numeros 4, 9 y 15, entonces eso significa que debemos
+encender los bits 4, 9 y 15 del filtro de 16 bits, quedandonos entonces
+
+0000100001000001
+
+Ese es el filtro de bloom. Una vez creado vemos que por ejemplo para el valor A
+las funciones de hashing nos dan que se deben activar el bit 13 y 15 pero vemos
+que como el bit 13 no esta activado en nuestro filtro entonces A no pertenece al filtro.
+Luego para B tenemos que activar el bit 5 y 8, pero vemos que ninguno de los 2 bits
+estan activados (aunque ya con el bit 5 al ver que no esta activado alcanza, o con el 8
+tambien) asi que no pertenece al filtro. Luego para el valor D es el 4 y el 15,
+y vemos que tanto el bit 4 como el bit 15 estan activados en nuestro filtro
+por lo tanto D pertenece al filtro con probabilidad 0.8 (ya que nuestro filtro
+tiene probabilidad de falso positivo de 0.2 por lo tanto la probabilidad de que sea
+un verdadero positivo es 0.8).
+
+b)
+
+Hay una formula para el k y m optimo, donde k es la cantidad de funciones de hashing
+optimas. Dicha formula es
+
+k = m / n * ln(2) = 16 / 5 * ln(2) = 2.218 ~= 2
+
+Vemos entonces que la cantidad de funciones de hashing que se estan utilizando es
+la optima. Si quieren ver de donde sale esta formula vean la pag 567 del apunte.
+OJO QUE EN LA ANTEULTIMA FORMULA SE COMIERON UN - EN EL ELEVADO DE e. O sea que es
+e^-(k*n/m).

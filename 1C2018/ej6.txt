@@ -1,0 +1,9 @@
+6) Dados los nodos A, B, C, D, E, F y G, y las aristas A-B, A-C,
+A-D, A-F, B-D, C-E, D-G, E-F, F-G, E-G.
+a. Muestre la distribución de grados. (3pts)
+b. Indique cuál es el diámetro de la red. (3pts)
+c. Calcule el coeficiente de clustering promedio. (4pts)
+d. Compare dichos valores con los valores característicos de
+una red social y analice las semejanzas y diferencias. (5pts)
+(***)
+
