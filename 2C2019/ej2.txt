@@ -1,0 +1,22 @@
+2) Un sistema recibe un flujo de datos numericos que necesita asignar a un
+cluster, para eso se utiliza K-Means Online con k = 3. Suponiendo que realizara
+la inicializacion con los primeros 6 datos del stream y les siguen los siguientes
+4, realizar el seguimiento indicando como se comporta el metodo para generar
+los clusters, y cual es el resultado final luego de procesar los 10 elementos dados.
+
+S = [2, 6, 7, 18, 1, 9,      0, 3, 4, 23]
+
+Respuesta:
+
+Lo primero que hace el algoritmo es aplicar K-Means (normal) sobre los primeros
+6 datos hasta converger a los 3 centroides. En este caso a ojo vemos rapidamente
+que los clusters serian {1,2}, {6,7,9} y {18}. Calculando el centroide de estos
+clusters obtenemos C1 = 3/2, C2 = 7.33, C3 = 18. La siguiente iteracion ya
+darian los mismos centroides asi que ya convergimos y estos son los centroides
+de esos primeros 6 datos. Ahora viene la parte "Online" en si del algoritmo
+donde lo que hacemos es cada vez que nos llega un nuevo punto se lo asignamos al centroide
+mas cercano y actualizamos el centroide mediante la formula Cj = Cj + (1/Nj)*(Xi-Cj).
+Entonces al agregar el 0 vemos que se lo tenemos que asignar al primer cluster,
+luego C1 = 1.5 + (0 - 1.5) / 3 = 1 y aparte le sumamos 1 al N1 entonces N1++ entonces
+N1 = 2 + 1 = 3 (por eso dividimos por 3 para el C1). Para el 3 tendriamos que
+se asigna al cluster de C1 entonces N1 = 4 y C1 = 1 + (3 - 1) / 4 = 1

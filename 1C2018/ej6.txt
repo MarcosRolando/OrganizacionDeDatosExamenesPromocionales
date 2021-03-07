@@ -7,3 +7,52 @@ d. Compare dichos valores con los valores característicos de
 una red social y analice las semejanzas y diferencias. (5pts)
 (***)
 
+IMPORTANTE: ver grafico en ej6.png
+
+Respuesta:
+
+a)
+
+A -> 4
+B -> 2
+C -> 2
+D -> 3
+E -> 3
+F -> 3
+G -> 3
+
+Entonces tendremos 2 nodos con grado 2, 1 nodo con grado 4 y 4 nodos con grado
+3.
+
+b)
+
+El diametro de la red es 3.
+
+c)
+
+La formula para el coeficiente de clustering para un nodo es
+
+Ci = 2*ei / (ki * (ki - 1))
+
+Ca = 1/6
+Cb = 1
+Cc = 0
+Cd = 1/3
+Ce = 1/3
+Cf = 1/3
+Cg = 1/3
+
+Luego el C promedio = sum(Ci, i, 1, n) / n = 0.3571
+
+d)
+
+En general la distribucion de grados de una red social tiende a seguir la distribucion
+de la power law, donde la cantidad de nodos (usuarios) con grado k se calcula
+mediante 1/k, pero vemos que nuestro grafo no sigue dicha distribucion porque
+si graficas los puntos obtenidos en el item a tendriamos una forma mas de campana.
+Luego el diametro de de una red social suele ser bajo, siendo del orden
+de log10(n), pero vemos que log10(7) ~= 0.8 << 3 asi que no es como una red social
+en este sentido tampoco. Finalmente el coeficiente de clustering promedio para una
+red social suele ser bastante alto (cercano a 1) mientras que el nuestro es bajo
+(0.35) asi que nuestro grafo no presenta ningun similitud en estos parametros
+comparable con la de una red social.

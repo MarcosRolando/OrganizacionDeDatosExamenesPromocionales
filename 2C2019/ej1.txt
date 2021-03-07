@@ -1,0 +1,74 @@
+1) Dados los siguientes datos generar un arbol de decision utilizando ID3
+que permita determinar cuando una persona es candidata a contratar un seguro
+de vida
+
+Reg     Sexo        Hijos       Trabajo     Auto        Seguro de Vida
+
+1       M           Si          Si          Si          Si
+
+2       F           No          No          No          No
+
+3       F           No          Si          No          No
+
+4       M           No          Si          Si          No
+
+5       M           Si          Si          Si          Si
+
+6       M           Si          No          Si          Si
+
+7       F           Si          Si          No          No
+
+8       M           Si          No          No          Si
+
+9       F           No          No          No          No
+
+10      F           No          Si          Si          Si
+
+11      F           Si          No          No          No
+
+12      F           Si          Si          Si          Si
+
+Respuesta:
+
+Primero calculamos la entropia total del set de datos
+
+H(SET) = - (6/12*log2(6/12)*2) = 1
+
+Ahora calculamos la entropia de cada columna
+
+Para la columna Sexo tenemos que P(M) = 5/12 y P(F) = 7/12
+
+H(M) = -(4/5*log2(4/5) + 1/5*log2(1/5)) = 0.7219
+H(F) = -(2/7*log2(2/7) + 5/7*log2(5/7)) = 0.8631
+
+Entonces H(Sexo) = P(M) * H(M) + P(F) * H(F) = 0.8043
+
+Para la columna Hijos tenemos que P(Si) = 7/12 y P(No) = 5/12
+
+H(Si) = -(5/7*log2(5/7) + 2/7*log2(2/7)) = 0.8631
+H(No) = -(1/5*log2(1/5) + 4/5*log2(4/5)) = 0.7219
+
+Entonces H(Hijos) = P(Si) * H(Si) + P(No) * H(No) = 0.8043
+
+Para la columna Trabajo tenemos que P(Si) = 7/12 y P(No) = 5/12
+
+H(Si) = -(4/7*log2(4/7) + 3/7*log2(3/7)) = 0.9852
+H(No) = -(2/5*log2(2/5) + 3/5*log2(3/5)) = 0.9710
+
+Entonces H(Trabajo) = P(Si) * H(Si) + P(No) * H(No) = 0.9793
+
+Para la columna Auto tenemos que P(Si) = 6/12 y P(No) = 6/12
+
+H(Si) = -(5/6*log2(5/6) + 1/6*log2(1/6)) = 0.65
+H(No) = -(1/6*log2(1/6) + 5/6*log2(5/6)) = 0.65
+
+Entonces H(Auto) = P(Si) * H(Si) + P(No) * H(No) = 0.65
+
+Ahora queremos la columna con minima entropia asi la ganancia de informacion sera
+maxima ya que la ganancia es la resta entre la entropia del set de datos y la entropia
+de la columna.
+
+El primer split entonces lo hacemos por la columna Auto. Ahora para el caso que tiene
+Auto vemos con las columnas restantes de nuevo lo mismo.
+
+De recontra baja, es un ejercicio re paja.
