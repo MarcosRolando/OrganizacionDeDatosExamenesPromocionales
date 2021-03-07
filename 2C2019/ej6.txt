@@ -1,0 +1,19 @@
+6) Para el set de datos del ejercicio 1 explicar one hot encoding para la columna
+Hijos y Target encoding para la columna Trabajo. Sugerir como evitar las filtraciones
+para el target encoding de la columna Trabajo.
+
+Respuesta:
+
+Para el one hot encoding de Hijos vemos que tenemos 2 posibles valores, Si y No,
+asi que necesitaremos 2 columnas binarias donde la codificacion seria
+
+Si -> 1 0
+No -> 0 1
+
+Para el target encoding de trabajo tendriamos la proporcion de ganados para el Si y el No de Trabajo
+
+Si -> 4 / 7 = 0.5714
+No -> 2 / 5 = 0.4
+
+Para evitar filtraciones del target encoding podemos utilizar el leave one out
+encoding por ejemplo.

@@ -1,0 +1,35 @@
+5) Se desea utilizar Flajolet-Martin para poder estimar la cantidad de elementos
+distintos en el stream (momento de orden 0). Suponiendo que tenemos 10 posibles elementos del 1 al 10
+que pueden aparecer pero solo 4 de ellos aparecieron realmente. Para realizar la
+estimacion podemos hashear cada elemento en binario de 4 bits con la formula (3x + 7) mod 11.
+Contar los 0s del final del codigo (de derecha a izquierda).
+
+Encontrar todos los subconjuntos de 4 elementos que hacen que la estimacion sea
+exacta.
+
+Respuesta:
+
+Primero calculaos los hashes
+
+h(1) = 10 = 1010
+h(2) = 2 = 0010
+h(3) = 5 = 0101
+h(4) = 8 = 1000
+h(5) = 0 = 0000
+h(6) = 3 = 0011
+h(7) = 6 = 0110
+h(8) = 9 = 1001
+h(9) = 1 = 0001
+h(10) = 4 = 0100
+
+Entonces queremos todos los subconjuntos de 4 elementos que hagan que 2^r sea 4,
+donde entonces r = 2 sea la maxima cantidad de 0 medidos de derecha a izquierda
+que tengan en binario esos numeros del subconjunto. Entonces los subconjuntos pedidos
+son
+
+Bueno, el 10 tiene que ir si o si porque es el unico que tiene 2 ceros. Despues no pueden
+estar ni el 4 ni el 5 porque tienen mas de 2 ceros. Entonces la respuesta es todos los
+subconjuntos que te puedas armar entre los restantes junto con el 10. Chances
+de escribir todos los subconjuntos pero la cantidad es facil
+
+7C3 = 35 subconjuntos posibles

@@ -1,0 +1,34 @@
+4) Dada la siguiente representacion de la web:
+
+IMPORTANTE: ver grafo en el enunciado.
+
+a) Mostrar la matriz de transicion.
+b) Analizar que problemas presenta la misma para aplicar el modelo de Random
+Walkers y como se detecta esto en la matriz de transicion.
+
+Respuesta:
+
+a) La matriz de transicion es (desde A hacia G)
+
+0       1/2     0       0       0       0       0
+
+0       0       1       1/3     0       0       0
+
+0       0       0       1/3     0       0       0
+
+0       1/2     0       0       1/2     0       0
+
+0       0       0       0       0       1       0
+
+0       0       0       1/3     0       0       0
+
+0       0       0       0       1/2     0       0
+
+b)
+
+Lo de Random Walks es lo del Page Rank que podes ir del nodo a cualquiera
+de los que esta conectado con probabilidad uniforme. El unico problema que tenemos
+es el Dead End en los nodos A y G, ya que no tenemos Spider Trap ni nada raro.
+Esto lo podemos detectar en la matriz de transicion facilmente viendo si hay alguna
+columna (o mas) que sean todos 0. Si pasa eso entonces el nodo de esa columna
+es un Dead End.

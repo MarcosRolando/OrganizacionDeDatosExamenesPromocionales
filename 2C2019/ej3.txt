@@ -1,0 +1,78 @@
+3) Dada la siguiente matriz de utilidad entre usuarios y peliculas:
+
+IMPORTANTE: los valores de la matriz de aca vienen de uno que vimos que habia normalizado
+las filas. Copiamos ese porque la foto del enunciado ahi no se veia una poronga
+pero despues encontramos el enunciado bien. Como da totalmente igual cual matriz uses
+no la cambiamos.
+
+        Usuario
+        1           2       3           4          5          6        7        8           9           10          11       12
+
+Peli
+1      -13/5               -3/5                              7/5                            7/5                     2/5
+
+2                           11/6        5/6                            5/6                              -7/2       -13/6    -1/6
+
+3       -1          1                   -2         -1                  0                    1           0           2
+
+4                   -7/5    3/5                     8/5                         3/5                                 -7/5
+
+5                           2/3         -1/3        2/3     -4/3                                                    -4/3     5/3
+
+6       -8/5                2/5                     2/5                         -3/5                                7/5
+
+
+a)  Usando CF Item Item calcular la calificacion del usuario 2 para la pelicula 1
+considerando 2 items similares.
+
+b) Usando CF en base a desviaciones, calcular la clasificacion del usuario 2
+para la pelicula 1.
+
+c) Que conclusiones puede sacar de la comparacion de ambos resultados?
+
+Respuesta:
+
+a)
+
+Para la semejanza vamos a utilizar la ecuacion de Pearson la cual la pueden ver en el
+apunte. Vemos que ya el usuario 2 solo le dio score a 2 pelis asi que directamente
+las 2 mas semejantes van a ser esas 2. Esto nos ahorra tener que calcular la semejanza
+del resto de las pelis con la primer pelicula, aun asi tenemos que calcular la semejanza
+de la peli 3 y 4 para poder estimar el score que le dara el usuario 2. Entonces
+
+LINK A LA CALCULADORA DE PEARSON: https://www.mathsisfun.com/data/correlation-calculator.html
+
+S(P1, P3) = 0.838
+S(P1, P4) = -1
+
+Como la semejanza entre P4 Y P1 es negativa la descartamos, es decir, no la tendremos
+en cuenta para calcular la estimacion del puntaje. Finalmente solo tomaremos en cuenta
+el producto P3, obteniendo una estimacion del usuario 2 para el producto 1 de
+
+S(P1, P3) * Puntaje(P3) / S(P1, P3) = 4 (4 era el score original sin normalizar)
+
+b)
+
+ La formula es
+
+ rij = μ + δi + δj + δij
+
+ donde rij es la estimacion, u es el promedio global (todas las calificaciones de todas las peliculas)
+ δi es la desviacion del usuario i respecto a μ
+ δj es la desviacion del item j respecto a μ
+ δij es la desviación del usuario i para la pelı́cula j (ver como se calcula en el apunte)
+
+ entonces (ver valores de la matriz original, no la que tenemos copiada aca)
+
+μ = 3.17
+δ2 = 3 - 3.17 = -0.17
+δP1 = 3.6 - 3.17 = 0.43
+δP3 = 3 - 3.17 = - 0.17
+δ2P1 = 0.838 * (4 - 3.17 + 0.17 + 0.17) / 0.838 = 1.17
+
+r2P1 = 3.17 - 0.17 + 0.43 + 1.17 = 4.6
+
+c)
+
+La primera medida al ser item item y el usuario 2 solo califico 2 items
+es una poronga, mientras que la segunda estimacion al usar mas cosas es mejor.
