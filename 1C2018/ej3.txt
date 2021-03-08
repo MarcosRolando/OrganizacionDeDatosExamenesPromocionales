@@ -1,0 +1,35 @@
+3) Se desea aplicar clustering
+espectral sobre el siguiente
+grafo. Los 4 primeros
+autovalores de la matriz
+laplaciana (ordenados de
+menor a mayor) son:
+1=0,2=0.27, 3=0.55 y 4=3 y
+sus autovectores:
+v1=[-0.33, -0.33, -0.33, -0.33,
+-0.33, -0.33, -0.33, -0.33, -0.33]
+v2=[0.00, -0.44, -0.33, -0.44, 0.00, 0.00, 0.44, 0.44, 0.33]
+v3=[0.25, -0.28, -0.12, -0.28, 0.55, 0.55, -0.28, -0.28, -0.12]
+v4=[-0.07, 0.72, -0.07, -0.66, 0.15, -0.09, 0.03, 0.03, -0.07]
+Determinar cuántos y cuáles autovectores utilizar para detectar las 3
+comunidades del grafo. Justificar (***) (15 pts)
+
+IMPORTANTE: ver grafico en el enunciado.
+
+Respuesta:
+
+Lo primero que tenemos que aclarar es que el autovector asociado al autovalor 0
+no se usa porque el autovalor 0 siempre lo descartamos (no se por que, lo dice
+el apunte). Luego queremos utilizar los autovectores asociados a los menores autovalores
+yendo de menor a mayor y viendo cuantos autovectores necesitariamos para que al
+aplicar K-Means sobre estos nos de las comunidades pedidas. Notar que
+si usamos n-autovectoes tendriamos puntos en n dimensiones donde cada punto
+seria la combinacion de los valores de las mismas posiciones en los autovectores
+(ponele el punto asociado a la posicion 0 de los autovectores es un punto,
+el punto asociado a la posicion 1 de los autovectores es otro, etc). Entonces
+ararncamos probando con el autovector v2, y aplicamos K-Means sobre este (
+como nos piden detectar las 3 comunidades tenemos que k = 3).
+Vemos a ojo que lo nodos 0, 4 y 5 van a pertencer a un cluster, los nodos
+1,2,3 va otro cluster y finalmente los nodos 5,6,7 van a pertencer a otro cluster.
+Por lo tanto ya utilizando solo el autovector v2 podemos separar todas las comunidades
+correctamente, por lo solo necesitamos 1 autovector y es el v2.
