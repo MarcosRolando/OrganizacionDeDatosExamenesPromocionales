@@ -3,8 +3,10 @@
 regresión: (6,11,14,23,108,109,211). Usaremos gradient
 boosting para aproximar los valores de forma tal de minimizar el
 error cuadrático medio (MSE).
+
 a) Construir un árbol de decisión de 1 nivel, dibujarlo.
 (***) (5 pts)
+
 b) Una vez construido el árbol anterior construir un
 segundo árbol basado en la técnica de gradient
 boosting indicar la predicción final que realizaríamos
@@ -12,3 +14,56 @@ para cada punto y el error de train en base a estas
 predicciones. Indique si estamos ante un caso de
 overfitting o underfitting. (****)( (10 pts)
 
+Respuesta:
+
+a)
+
+Arrancamos probando el split para el primer valor de los puntos (el 1) entonces
+hacemos split por los menores iguales a 1 y los mayores a 1
+
+Armemos la tabla para cada valor que usamos para splitear
+
+                               1           17            18             26          203         411         511 (no hacemos split aca porque son todos menores iguales a 511)
+
+Valores Medios Target     (6, 79.3)    (8.5, 93)    (10.3, 112.75) (13.5, 142.7) (32.4, 160) (45.17, 211)     -
+
+MSE              *           4449         3651          2539            1022        1785        1740
+
+*Ejemplo de como seria para el 1:
+
+((6 - 6)^2 + (79.3-11)^2 + (79.3-14)^2 + ... + (79.3 - 211)^2) / 7 = 4449
+
+Vemos que el split que minimiza el MSE es el del 26. Entonces como solo nos piden
+un nivel el arbol quedaria con el nodo raiz siendo el split por 26, a la izquierda
+iria si es menor o igual a 26 donde predecira un valor de 13.5, mientras que el de la
+derecha seran los mayores a 26 y predecira un valor de 142.7.
+
+b)
+
+Ahora lo que haremos es ver el error para cada prediccion de los puntos que nos dieron
+en base al arbol que generamos, obteniendo entonces (recordar que es valorReal - prediccion)
+
+(-7.5, -2.5, 0.5, 9.5, -34.7, -33.7, 68.3)
+
+Ahora repetiremos lo que hicimos antes pero para estas nuevos valores de target
+
+                              1             17            18             26          203             411          511 (no hacemos split aca porque son todos menores iguales a 511)
+
+Valores Medios Target     (-7.5,1.23)    (-5,1.98)    (-3.17,2.35)    (0,-0.03)   (-6.94,17.3)   (-11.4, 68.3)     -
+
+MSE              *            1013          1012          1015           1022         902             244          -
+
+* Ejemplo para el 1
+
+((-7.5 + 13.5 - 6)^2 + (1.23 + 13.5 -11)^2 + (1.23 + 13.5 -14)^2 + ... + (1.23 + 142.7 - 211)^2) / 7 = 1013
+
+El split en este caso sera por el 411. Entonces para cada valor tendriamos las siguientes
+predicciones
+
+                    1       17      18      26      203     411     511
+
+prediccion         2.1      2.1     2.1     2.1     131.3   131.3   211
+
+El error cuadratico de train sera 244 (ver en el segundo arbol, es del nodo 411 que hicimos el split por ese).
+Viendo las predicciones vemos que son medio re poronga asi que consideramos que es un caso
+de underfitting.
